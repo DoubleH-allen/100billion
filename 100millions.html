@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./daletou.js"></script>
+	<link rel="stylesheet" href="./money.css">
+</head>
+<body>
+	<div class="money">
+		<div class="title">大乐透</div>	
+		<div class="randomMoney">
+			<div class="buttom" id="clickRandomOne" onclick="clickRandomNum(1)">机选1注</div>
+			<div class="buttom" onclick="clickRandomNum(5)">机选5注</div>
+			<!-- <div class="buttom">机选n注</div> -->
+		</div>
+		<div class="resultBall" id="resultBall">
+		</div>
+		<div class="line"></div>
+		<div class="title">双色球</div>	
+		<div class="randomMoney">
+			<div class="buttom" onclick="doubleColorNum(1)">机选1注</div>
+			<div class="buttom" onclick="doubleColorNum(5)">机选5注</div>
+			<!-- <div class="buttom">机选n注</div> -->
+		</div>
+		<div class="resultBall" id="doubleColorNum">
+		</div>
+	</div>
+	<script>
+	function clickRandomNum(num) {
+		var html = ''
+		for(var i=0;i<num;i++) {
+			html += oneOfFive()
+		} 
+
+		document.getElementById('resultBall').innerHTML = html
+	}
+	function oneOfFive() {
+		var result = randomDaLeTou()
+		var one = ''
+		var bluehtml = ''
+		var redhtml = ''
+		result.forEach(function(item, index) {
+			if(index < 5) {
+				bluehtml += "<div class='children'>" + item + "</div>"
+			}else if(index > 4) {
+				redhtml += "<div class='children'>" + item + "</div>"
+			}
+		})
+		one += "<div class='group'>" + 
+					"<div class='buleball'>" + 
+						bluehtml + 
+					"</div>" + 
+					"<div class='redball'>" + 
+						redhtml + 
+					"</div>" + 
+				"</div>"
+		return	one
+	}
+	function doubleColorNum(num) {
+		var html = ''
+		for(var i=0;i<num;i++) {
+			html += oneOfSix()
+		} 
+
+		document.getElementById('doubleColorNum').innerHTML = html
+	}
+	function oneOfSix() {
+		var result = randomShuangSeQiu()
+		var one = ''
+		var bluehtml = ''
+		var redhtml = ''
+		result.forEach(function(item, index) {
+			if(index < 6) {
+				bluehtml += "<div class='children'>" + item + "</div>"
+			}else if(index > 5) {
+				redhtml += "<div class='children'>" + item + "</div>"
+			}
+		})
+		one += "<div class='group'>" + 
+					"<div class='buleball'>" + 
+						bluehtml + 
+					"</div>" + 
+					"<div class='redball'>" + 
+						redhtml + 
+					"</div>" + 
+				"</div>"
+		return	one
+	}
+	</script>
+</body>
+</html>
