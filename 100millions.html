@@ -36,7 +36,10 @@
 		document.getElementById('resultBall').innerHTML = html
 	}
 	function oneOfFive() {
-		var result = randomDaLeTou()
+		var results = randomDaLeTou()
+		var lastTwo = results.splice(5,2).sort()
+		var result = results.sort().concat(lastTwo)
+
 		var one = ''
 		var bluehtml = ''
 		var redhtml = ''
@@ -66,7 +69,9 @@
 		document.getElementById('doubleColorNum').innerHTML = html
 	}
 	function oneOfSix() {
-		var result = randomShuangSeQiu()
+		var results = randomShuangSeQiu()
+		var lastOne = results.splice(6,1)
+		var result = results.sort().concat(lastOne)
 		var one = ''
 		var bluehtml = ''
 		var redhtml = ''
