@@ -63,20 +63,22 @@ html,body{
 .buleball .children {
 	width: 40px;
 	height: 40px;
-	border: 2px solid blue;
-	border-radius: 20px;
-	background-color: blue;
+	border-radius: 22px;
+	border: 1px solid #39f;
+	background-color: #fff;
 	text-align: center;
 	line-height: 40px;
 	margin-right: 10px;
+	color: #39f;
 }
 .redball .children {
 	width: 40px;
 	height: 40px;
-	border: 2px solid red;
-	border-radius: 20px;
-	background-color: red;
+	border: 1px solid #f54646;
+	border-radius: 22px;
+	background-color: #fff;
 	text-align: center;
 	line-height: 40px;
 	margin-right: 10px;
+	color: #f54646;
 }

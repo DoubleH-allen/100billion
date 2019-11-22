@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="money">
-		<div class="title">大乐透</div>	
+		<div class="title">大乐透 &emsp;<span id="date"></span>&emsp;<span><a href="http://datachart.500.com/ssq/">走势</a></span></div>	
 		<div class="randomMoney">
 			<div class="buttom" id="clickRandomOne" onclick="clickRandomNum(1)">机选1注</div>
 			<div class="buttom" onclick="clickRandomNum(5)">机选5注</div>
@@ -17,7 +17,7 @@
 		<div class="resultBall" id="resultBall">
 		</div>
 		<div class="line"></div>
-		<div class="title">双色球</div>	
+		<div class="title">双色球&emsp;<span id="date2"></span></div>	
 		<div class="randomMoney">
 			<div class="buttom" onclick="doubleColorNum(1)">机选1注</div>
 			<div class="buttom" onclick="doubleColorNum(5)">机选5注</div>
@@ -27,6 +27,14 @@
 		</div>
 	</div>
 	<script>
+	function date() {
+		var date = new Date()
+		var h = date.getFullYear() + '年' + parseInt(date.getMonth() + 1)+ '月' + date.getDate()+ '日' + '  '+'星期'+ date.getDay()
+		console.log(h)
+		document.getElementById('date').innerHTML = h
+		document.getElementById('date2').innerHTML = h
+	}
+	date()
 	function clickRandomNum(num) {
 		var html = ''
 		for(var i=0;i<num;i++) {
@@ -51,10 +59,10 @@
 			}
 		})
 		one += "<div class='group'>" + 
-					"<div class='buleball'>" + 
+					"<div class='redball'>" + 
 						bluehtml + 
 					"</div>" + 
-					"<div class='redball'>" + 
+					"<div class='buleball'>" + 
 						redhtml + 
 					"</div>" + 
 				"</div>"
@@ -83,10 +91,10 @@
 			}
 		})
 		one += "<div class='group'>" + 
-					"<div class='buleball'>" + 
+					"<div class='redball'>" + 
 						bluehtml + 
 					"</div>" + 
-					"<div class='redball'>" + 
+					"<div class='buleball'>" + 
 						redhtml + 
 					"</div>" + 
 				"</div>"
