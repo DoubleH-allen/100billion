@@ -1,23 +1,22 @@
-function clickRandomNum(num) {
+function doubleColorNum(num) {
 	var html = ''
 	for(var i=0;i<num;i++) {
-		html += oneOfFive()
+		html += oneOfSix()
 	} 
 
-	document.getElementById('resultBall').innerHTML = html
+	document.getElementById('doubleColorNum').innerHTML = html
 }
-function oneOfFive() {
-	var results = randomDaLeTou()
-	var lastTwo = results.splice(5,2).sort()
-	var result = results.sort().concat(lastTwo)
-
+function oneOfSix() {
+	var results = randomShuangSeQiu()
+	var lastOne = results.splice(6,1)
+	var result = results.sort().concat(lastOne)
 	var one = ''
 	var bluehtml = ''
 	var redhtml = ''
 	result.forEach(function(item, index) {
-		if(index < 5) {
+		if(index < 6) {
 			bluehtml += "<div class='children'>" + item + "</div>"
-		}else if(index > 4) {
+		}else if(index > 5) {
 			redhtml += "<div class='children'>" + item + "</div>"
 		}
 	})

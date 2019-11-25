@@ -3,12 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="./daletou.js"></script>
+	<script src="./randomball.js"></script>
 	<link rel="stylesheet" href="./money.css?2">
 </head>
 <body>
 	<div class="money">
-		<div class="title">大乐透 &emsp;<span id="date"></span>&emsp;<span><a href="http://datachart.500.com/ssq/">走势</a></span></div>	
+		<div class="title">大乐透 &emsp;<span id="date"></span>&emsp;<span><a href="http://datachart.500.com/ssq/">走势</a></span><br><span id="resulta"></span></div>	
 		<div class="randomMoney">
 			<div class="buttom" id="clickRandomOne" onclick="clickRandomNum(1)">机选1注</div>
 			<div class="buttom" onclick="clickRandomNum(5)">机选5注</div>
@@ -17,7 +17,7 @@
 		<div class="resultBall" id="resultBall">
 		</div>
 		<div class="line"></div>
-		<div class="title">双色球&emsp;<span id="date2"></span></div>	
+		<div class="title">双色球&emsp;<span id="date2"></span><br><span id="resultb"></span></div>	
 		<div class="randomMoney">
 			<div class="buttom" onclick="doubleColorNum(1)">机选1注</div>
 			<div class="buttom" onclick="doubleColorNum(5)">机选5注</div>
@@ -26,80 +26,10 @@
 		<div class="resultBall" id="doubleColorNum">
 		</div>
 	</div>
-	<script>
-	function date() {
-		var date = new Date()
-		var h = date.getFullYear() + '年' + parseInt(date.getMonth() + 1)+ '月' + date.getDate()+ '日' + '  '+'星期'+ date.getDay()
-		console.log(h)
-		document.getElementById('date').innerHTML = h
-		document.getElementById('date2').innerHTML = h
-	}
-	date()
-	function clickRandomNum(num) {
-		var html = ''
-		for(var i=0;i<num;i++) {
-			html += oneOfFive()
-		} 
-
-		document.getElementById('resultBall').innerHTML = html
-	}
-	function oneOfFive() {
-		var results = randomDaLeTou()
-		var lastTwo = results.splice(5,2).sort()
-		var result = results.sort().concat(lastTwo)
-
-		var one = ''
-		var bluehtml = ''
-		var redhtml = ''
-		result.forEach(function(item, index) {
-			if(index < 5) {
-				bluehtml += "<div class='children'>" + item + "</div>"
-			}else if(index > 4) {
-				redhtml += "<div class='children'>" + item + "</div>"
-			}
-		})
-		one += "<div class='group'>" + 
-					"<div class='redball'>" + 
-						bluehtml + 
-					"</div>" + 
-					"<div class='buleball'>" + 
-						redhtml + 
-					"</div>" + 
-				"</div>"
-		return	one
-	}
-	function doubleColorNum(num) {
-		var html = ''
-		for(var i=0;i<num;i++) {
-			html += oneOfSix()
-		} 
-
-		document.getElementById('doubleColorNum').innerHTML = html
-	}
-	function oneOfSix() {
-		var results = randomShuangSeQiu()
-		var lastOne = results.splice(6,1)
-		var result = results.sort().concat(lastOne)
-		var one = ''
-		var bluehtml = ''
-		var redhtml = ''
-		result.forEach(function(item, index) {
-			if(index < 6) {
-				bluehtml += "<div class='children'>" + item + "</div>"
-			}else if(index > 5) {
-				redhtml += "<div class='children'>" + item + "</div>"
-			}
-		})
-		one += "<div class='group'>" + 
-					"<div class='redball'>" + 
-						bluehtml + 
-					"</div>" + 
-					"<div class='buleball'>" + 
-						redhtml + 
-					"</div>" + 
-				"</div>"
-		return	one
-	}
-	</script>
+	<script src="./date.js"></script>
+	<script src="./daletou.js"></script>
+	<script src="./shuangseqiu.js"></script>
+	<script src="./daletoulist.js"></script>
+	<script src="./shuangseqiulist.js"></script>
 </body>
 </html>
